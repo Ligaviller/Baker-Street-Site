@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.heading {
+    font-family: 'Courgette', cursive;
+    margin: 0;
+    display:inline;
+}
+body{
+    background-color: #cccccc;
+}
+
+
+/* Header START */
+
+
+.menu {
+    text-align: center;
+    height: 60px;
+    width: auto;
+    min-width: 1000px;
+    background-color: white;
+    margin: 0;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5); /* Параметры тени */
+}
+.logo{
+    width:40px;
+    height: 40px;
+    display: inline;
+    margin-left: 15px;
+}
+.hvr-underline-from-center {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    position: relative;
+    overflow: hidden;
+}
+.hvr-underline-from-center:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    background: black;
+    height: 4px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+    left: 0;
+    right: 0;
+}
+
+/* Header END */
+
+
+/* Elements START */
+
+.main{
+
+}
+.error{
+    color:#ad4444;
+    font-size: 32px;
+    font-family: 'Roboto', sans-serif;
+    margin:5px;
+
+}
+
+.elem{
+    width:100%;
+    height:60px;
+    border: 1px solid black;
+    border-left: none;
+    border-right: none;
+    padding: 3px;
+    padding-right: 0;
+    padding-left: 0;
+    background-color: white;
+    margin-bottom: -1px;
+    transition: 0.1s;
+
+}
+.elem:hover{
+    background-color: #d4ffe2;
+    transition: 0.1s;
+}
+.elem>img{
+    width:90px;
+    height: 60px;
+    margin-left: 3px;
+    float: left;
+}
+.elem h3{
+    float: left;
+    font-size: 24px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    margin:15px;
+    min-width:350px;
+    text-align: center;
+}
+a{
+    color:inherit;
+}
+.elem>.log-text{
+    float: left;
+    display: inline-block;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 15px;
+}
+.log{
+    background-color:rgb(215, 246, 255);
+}
+.elem>.err-text{
+    float: left;
+    display: inline-block;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 15px;
+}
+.err{
+    background-color:rgb(255, 143, 143);
+    margin-top: 0;
+}
+.tag{
+    display: inline-block;
+
+    font-size: 14px;
+    padding: 3px;
+    border:1px solid green;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 15px;
+}
+.btn{
+    height: 60px;
+    width:60px;
+    float: right;
+    margin-right: 5px;
+    background-color: #606060;
+}
+.edit{
+    background-color: rgb(215, 200, 150);
+    background-image: url("/template/images/Pencil-icon.png");
+    background-size: 60px 60px;
+    transition: 0.5s;
+}
+.edit:hover{
+    background-color: rgb(222, 220, 55);
+    transition: 0.5s;
+}
+.close{
+    background-image: url("/template/images/x.png");
+    background-size: 60px 60px;
+    background-color: rgb(215, 150, 130);
+    transition: 0.5s;
+}
+.close:hover{
+    background-color: rgb(215, 65, 65);
+    transition: 0.5s;
+}
+
+/* Elements END */
+
+/* Nav START */
+
+.nav {
+    height: 60px;
+    width: auto;
+    background-color: white;
+    border-top: 1px solid black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    padding-left: 5px;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.nav a{
+    display: inline-block;
+    padding: 2px;
+    margin:0 10px 0 10px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+.nav a:hover{
+    background-color: #d4ffe2;
+    text-decoration: underline;
+    transition: 0.1s;
+}
+
+.nav a:active{
+    background-color: #77ffa4;
+    transition: 0.1s;
+}
+
+a.selected{
+    background-color: #77ffa4;
+    text-decoration: underline;
+}
+.login-form{
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 15px;
+    background-color: white;
+    width:400px;
+    height: 250px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+button{
+    margin-top:20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: Black;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+input[type=text]{
+    width: 100%;
+    padding: 6px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-size:24px;
+}
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+input[type=password]{
+    width: 100%;
+    padding: 6px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-size:24px;
+
+}
+input[type=password]:focus {
+    border: 3px solid #555;
+}
+input[type=checkbox]{
+    font-size:24px;
+}
+label{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+.exit{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+div.exit{
+    margin-right: 5px;
+    background-color: rgb(215, 150, 130);
+    padding: 1px;
+}
+.recipe{
+    margin: 20px auto 0 auto;
+    padding: 20px 60px 20px 60px;
+    font-family: 'Roboto', sans-serif;
+    width:900px;
+    height:auto;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.recipeHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: right;
+}
+.recipeHeaderRow{
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.date{
+    font-size: smaller;
+    font-style: italic;
+}
+.recipeHeader>h1{
+    font-size: 54px;
+}
+.recipeMid{
+    display: flex;
+    flex-direction: row;
+    margin:20px 0 0 0;
+
+}
+.recipeMid>img{
+    border-radius: 10px;
+    min-width:500px;
+    height: 281px;
+}
+.recipeTags{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+    width:420px;
+    padding: 10px;
+    font-size: 24px;
+    justify-content: center;
+}
+ li{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.recipeTags img{
+    width:24px;
+    height: 24px;
+    margin: 2px 5px 0 0;
+    opacity: 0.6;
+}
+.i{
+    opacity: 0.6;
+}
+.tagEnd{
+    margin-left: auto;
+}
+.recipeIng{
+    font-size: 24px;
+    margin-top: 20px;
+    display: flex;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+}
+.tableIng{
+    display: flex;
+    flex-direction: row;
+}
+.tableIng li{
+    margin: 5px 5px 0 0;
+    border-bottom: 1px solid lightgrey;
+}
+.tableIng li:last-child{
+    margin: 5px 5px 0 0;
+    border:0;
+}
+.tableIngIng{
+    flex-grow: 1;
+}
+.tableIngCount{
+    flex-grow: 1;
+}
+.recipeSteps{
+    font-size: 24px;
+    margin-top: 20px;
+    display: flex;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+}
+.recipeStepItem{
+    display: flex;
+    flex-direction: row;
+    padding:10px;
+    align-items: center;
+}
+.recipeStepItem>img{
+    width:250px;
+    height:140px;
+    margin-right: 20px;
+    border-radius: 5px;
+
+}
