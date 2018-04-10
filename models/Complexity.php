@@ -27,7 +27,7 @@ class Complexity
     {
         $db = Db::getConnection();
         $complexityList = array();
-        $result = $db->query('SELECT * FROM Complexity
+        $result = $db->query('SELECT * FROM complexity
                                         ORDER BY com_name ASC LIMIT 50');
         $result->setFetchMode(PDO::FETCH_ASSOC);
         $i = 0;
