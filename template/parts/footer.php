@@ -1,3 +1,4 @@
+
 <script>
     $(document).ready(function () {
         var path = window.location.pathname;
@@ -5,4 +6,6 @@
         var row = $('#' + list[1]);
         $(row).addClass("selected");
     });
+
 </script>
+

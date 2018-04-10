@@ -45,6 +45,30 @@ function AddCategoryItem($catId, $catName, $catPhoto){
     echo '</div>';
 }
 
+function AddKitchenItem($kitId, $kitName, $kitPhoto){
+    echo ' <div class="elem">';
+    echo ' <img src="'.$kitPhoto.'" alt="Фото">';
+    echo ' <a href="/kitchens/'.$kitId.'"><h3>'.$kitName.'</h3></a>';
+    echo ' <div class="btn close"></div>';
+    echo ' <div class="btn edit"></div>';
+    echo '</div>';
+}
+function AddMethodItem($metId, $metName, $metPhoto){
+    echo ' <div class="elem">';
+    echo ' <img src="'.$metPhoto.'" alt="Фото">';
+    echo ' <a href="/methods/'.$metId.'"><h3>'.$metName.'</h3></a>';
+    echo ' <div class="btn close"></div>';
+    echo ' <div class="btn edit"></div>';
+    echo '</div>';
+}
+function AddOccasionItem($occId, $occName, $occPhoto){
+    echo ' <div class="elem">';
+    echo ' <img src="'.$occPhoto.'" alt="Фото">';
+    echo ' <a href="/occasions/'.$occId.'"><h3>'.$occName.'</h3></a>';
+    echo ' <div class="btn close"></div>';
+    echo ' <div class="btn edit"></div>';
+    echo '</div>';
+}
 function AddErr($errText){
     echo'<div class="elem err event">';
     echo' <h3>Ошибка</h3>';

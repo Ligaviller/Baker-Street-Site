@@ -13,4 +13,11 @@ class IngredientController
         }
         return true;
     }
+    public function actionList()
+    {
+        $ingredientList = array();
+        $ingredientList = Ingredient::getIngredientList();
+        require(ROOT."/views/ingredients/index.php");
+        return true;
+    }
 }

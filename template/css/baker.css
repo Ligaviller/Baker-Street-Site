@@ -354,6 +354,7 @@ div.exit{
     min-width:500px;
     height: 281px;
 }
+
 .itemTags{
     margin-left: 20px;
     display: flex;
@@ -397,6 +398,7 @@ div.exit{
     border-radius: 10px;
     flex-direction: column;
 }
+
 .tableIng{
     display: flex;
     flex-direction: row;
@@ -438,3 +440,6 @@ div.exit{
 
 }
 
+.add .fieldname{
+    width: 100px;
+}
