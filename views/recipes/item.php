@@ -1,19 +1,19 @@
 <?php include (ROOT."/template/parts/header.php");
 ?>
 
-<div class="recipe">
-    <div class="recipeHeader">
+<div class="item">
+    <div class="itemHeader">
         <h1><?php echo $recipeItem['rec_name']; ?></h1>
-        <div class="recipeHeaderRow">
+        <div class="itemHeaderRow">
             <div>Добавил <?php echo $recipeItem['user_name']; ?></div>
             <div class="date"><?php echo $recipeItem['date']; ?></div>
         </div>
     </div>
     <hr>
-    <div class="recipeMid">
+    <div class="itemMid">
 
         <img src="<?php echo $recipeItem['photo']; ?>">
-        <div class="recipeTags">
+        <div class="itemTags">
             <h3>Теги</h3>
             <hr>
             <ul>

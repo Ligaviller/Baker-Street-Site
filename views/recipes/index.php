@@ -1,4 +1,6 @@
-<?php include (ROOT."/template/parts/header.php");
+<?php
+
+include (ROOT."/template/parts/header.php");
 require_once(ROOT."/template/parts/elems.php");
 ?>
 
@@ -7,7 +9,7 @@ require_once(ROOT."/template/parts/elems.php");
     <?php
 
     foreach ($recipeList as $recipeItem){
-        AddElem($recipeItem['id'], $recipeItem["rec_name"], $recipeItem["photo"], $recipeItem["cat_name"], $recipeItem["kit_name"],
+        AddRecipeItem($recipeItem['id'], $recipeItem["rec_name"], $recipeItem["photo"], $recipeItem["cat_name"], $recipeItem["kit_name"],
             $recipeItem["met_name"], $recipeItem["occ_name"], $recipeItem["ser_name"], $recipeItem["tim_name"], $recipeItem["com_name"]);
         echo "</a>";
     }

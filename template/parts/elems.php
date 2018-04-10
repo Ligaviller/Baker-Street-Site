@@ -1,6 +1,6 @@
 <?php
 
-function AddElem($recId, $recName, $recPhoto, $catName, $kitName, $metName, $occName, $serName, $timName, $comName){
+function AddRecipeItem($recId, $recName, $recPhoto, $catName, $kitName, $metName, $occName, $serName, $timName, $comName){
     echo ' <div class="elem">';
     echo ' <img src="'.$recPhoto.'" alt="Фото">';
     echo ' <a href="/recipes/'.$recId.'"><h3>'.$recName.'</h3></a>';
@@ -11,6 +11,18 @@ function AddElem($recId, $recName, $recPhoto, $catName, $kitName, $metName, $occ
     echo ' <div class="tag ser">'.$serName.'</div>';
     echo ' <div class="tag tim">'.$timName.'</div>';
     echo ' <div class="tag com">'.$comName.'</div>';
+    echo ' <div class="btn close"></div>';
+    echo ' <div class="btn edit"></div>';
+    echo '</div>';
+}
+
+function AddIngredientItem($ingId, $ingName, $ingPhoto, $ingCaloricity, $ingCost, $ingRare){
+    echo ' <div class="elem">';
+    echo ' <img src="'.$ingPhoto.'" alt="Фото">';
+    echo ' <a href="/ingredients/'.$ingId.'"><h3>'.$ingName.'</h3></a>';
+    echo ' <div class="tag cat">Калл: '.$ingCaloricity.'</div>';
+    echo ' <div class="tag met">Цена: '.$ingCost.'</div>';
+    echo ' <div class="tag occ">Редкость: '.$ingRare.'</div>';
     echo ' <div class="btn close"></div>';
     echo ' <div class="btn edit"></div>';
     echo '</div>';

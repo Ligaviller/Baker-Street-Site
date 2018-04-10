@@ -7,8 +7,9 @@ class IngredientController
         if($id)
         {
             $ingredientItem = Ingredient::getIngredientById($id);
-            echo "<pre>";
-            print_r($ingredientItem);
+
+            require(ROOT . '/views/ingredients/item.php');
+
         }
         return true;
     }

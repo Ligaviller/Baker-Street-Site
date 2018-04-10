@@ -6,8 +6,7 @@ class IngredientListController
     {
         $ingredientList = array();
         $ingredientList = Ingredient::getIngredientList();
-        echo "<pre>";
-        print_r($ingredientList);
+        require(ROOT."/views/ingredients/index.php");
         return true;
     }
 }

@@ -10,7 +10,7 @@ class RecipeController
             $ingredientList = Ingredient::getIngredientListByRecipeId($id);
 
 
-            require(ROOT . '/views/recipes/recipeItem.php');
+            require(ROOT . '/views/recipes/item.php');
         }
         return true;
     }

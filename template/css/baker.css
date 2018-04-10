@@ -302,7 +302,7 @@ div.exit{
     background-color: rgb(215, 150, 130);
     padding: 1px;
 }
-.recipe{
+.item{
     margin: 20px auto 0 auto;
     padding: 20px 60px 20px 60px;
     font-family: 'Roboto', sans-serif;
@@ -314,13 +314,13 @@ div.exit{
     display: flex;
     flex-direction: column;
 }
-.recipeHeader{
+.itemHeader{
     display: flex;
     flex-direction: row;
     align-items: center;
     text-align: right;
 }
-.recipeHeaderRow{
+.itemHeaderRow{
     margin-left: auto;
     display: flex;
     flex-direction: column;
@@ -330,21 +330,21 @@ div.exit{
     font-size: smaller;
     font-style: italic;
 }
-.recipeHeader>h1{
+.itemHeader>h1{
     font-size: 54px;
 }
-.recipeMid{
+.itemMid{
     display: flex;
     flex-direction: row;
     margin:20px 0 0 0;
 
 }
-.recipeMid>img{
+.itemMid>img{
     border-radius: 10px;
     min-width:500px;
     height: 281px;
 }
-.recipeTags{
+.itemTags{
     margin-left: 20px;
     display: flex;
     flex-direction: column;
@@ -361,7 +361,7 @@ div.exit{
     flex-direction: row;
     align-items: center;
 }
-.recipeTags img{
+.itemTags img{
     width:24px;
     height: 24px;
     margin: 2px 5px 0 0;
