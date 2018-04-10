@@ -1,5 +1,13 @@
 <?php
-
+function getUrl() {
+    $url  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] :  'https://'.$_SERVER["SERVER_NAME"];
+    $url .= ( $_SERVER["SERVER_PORT"] != 80 ) ? ":".$_SERVER["SERVER_PORT"] : "";
+    $url .= $_SERVER["REQUEST_URI"];
+    if($rest = substr($url, -1)=="/") {
+        $url = substr($url, 0, -1);
+    }
+    return $url;
+}
 function AddRecipeItem($recId, $recName, $recPhoto, $catName, $kitName, $metName, $occName, $serName, $timName, $comName){
     echo ' <div class="elem">';
     echo ' <img src="'.$recPhoto.'" alt="Фото">';
@@ -27,6 +35,16 @@ function AddIngredientItem($ingId, $ingName, $ingPhoto, $ingCaloricity, $ingCost
     echo ' <div class="btn edit"></div>';
     echo '</div>';
 }
+
+function AddCategoryItem($catId, $catName, $catPhoto){
+    echo ' <div class="elem">';
+    echo ' <img src="'.$catPhoto.'" alt="Фото">';
+    echo ' <a href="/categories/'.$catId.'"><h3>'.$catName.'</h3></a>';
+    echo ' <div class="btn close"></div>';
+    echo ' <div class="btn edit"></div>';
+    echo '</div>';
+}
+
 function AddErr($errText){
     echo'<div class="elem err event">';
     echo' <h3>Ошибка</h3>';
@@ -37,12 +55,14 @@ function AddErr($errText){
     echo'</div>';
 }
 function AddLog($logText){
+    echo' <a class="log-a" href="'.getUrl()."/add";
+    echo' ">';
     echo'  <div class="elem log event"> ';
-    echo'    <h3>Событие</h3>';
     echo'    <div class="log-text">';
+    echo' <img class="plus" src="/template/images/plus-button.svg" alt="">';
     echo'      <p>'.$logText.'</p>';
     echo'    </div>';
-    echo'   <div class="btn close"></div>';
     echo'  </div>';
+    echo' </a>';
 }
 ?>

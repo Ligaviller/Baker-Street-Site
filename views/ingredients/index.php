@@ -6,7 +6,7 @@ require_once(ROOT."/template/parts/elems.php");
 <div class="main">
 
     <?php
-
+    AddLog("Добавить ингредиент");
     foreach ($ingredientList as $ingredientItem){
         AddIngredientItem($ingredientItem['id'], $ingredientItem["ing_name"], $ingredientItem["photo"], $ingredientItem["caloricity"], $ingredientItem["cost"],
             $ingredientItem["rare"]);

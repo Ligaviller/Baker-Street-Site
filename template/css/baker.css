@@ -133,14 +133,24 @@ a{
     color:inherit;
 }
 .elem>.log-text{
-    float: left;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
     font-size: 24px;
     font-family: 'Roboto', sans-serif;
-    margin-top: 15px;
 }
 .log{
     background-color:rgb(215, 246, 255);
+    display: flex;
+    justify-content: center;
+}
+.log-a{
+    text-decoration: none;
+}
+.log:active{
+    background-color: #77ffa4;
+    transition: 0.1s;
 }
 .elem>.err-text{
     float: left;
@@ -366,6 +376,11 @@ div.exit{
     height: 24px;
     margin: 2px 5px 0 0;
     opacity: 0.6;
+}
+.plus{
+    width:24px;
+    height: 24px;
+    margin: 2px 5px 0 0;
 }
 .i{
     opacity: 0.6;
