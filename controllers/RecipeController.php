@@ -31,6 +31,7 @@ class RecipeController
         $timeList = Time::getTimeList();
         $complexityList = Complexity::getComplexityList();
         $ingredientList = Ingredient::getIngredientList();
+        $countList = Count::getCountList();
 
         require(ROOT . '/views/recipes/add.php');
         return true;

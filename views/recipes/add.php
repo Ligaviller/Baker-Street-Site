@@ -136,16 +136,21 @@ var lastField = $("#buildyourform div:last");
 var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
 var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
 fieldWrapper.data("idx", intId);
-var fType = $("<select class=\"fieldtype\"><?php
+var ing = $("<select class=\"fieldtype\"><?php
     foreach ($ingredientList as $ingredientItem)
         echo '<option value=\"'.$ingredientItem["id"].'\">'.$ingredientItem["ing_name"].'</option>';
+    ?></select>");
+var count = $("<select class=\"fieldtype\"><?php
+    foreach ($countList as $countItem)
+        echo '<option value=\"'.$countItem["id"].'\">'.$countItem["count_name"].'</option>';
     ?></select>");
 var fName = $("<input type=\"text\" class=\"fieldname\" />");
 var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
 removeButton.click(function() {
 $(this).parent().remove();
 });
-fieldWrapper.append(fType);
+fieldWrapper.append(ing);
+fieldWrapper.append(count);
 fieldWrapper.append(fName);
 fieldWrapper.append(removeButton);
 
