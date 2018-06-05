@@ -86,4 +86,69 @@ class Recipe
         }
         return false;
     }
+
+    public static function insertRecipe($rec_name, $rec_photo, $rec_cat, $rec_kit, $rec_met, $rec_occ, $rec_ser, $rec_tim, $rec_com)
+    {
+        if(!empty($rec_name)&&!empty($rec_photo))
+        {
+            $db = Db::getConnection();
+            $sql = 'INSERT INTO recipe (rec_name, photo, id_category, id_kitchen,'
+                .' id_method, id_occasion, id_servings, id_time, id_complexity, date, id_user, rate, votes) '
+                .'VALUES (:rec_name, :rec_photo, :rec_cat, :rec_kit, :rec_met, :rec_occ, :rec_ser, :rec_tim, :rec_com, DEFAULT, :user_id, NULL, NULL)';
+            $result = $db->prepare($sql);
+            $result->bindParam(':rec_name', $rec_name, PDO::PARAM_STR);
+            $result->bindParam(':rec_photo', $rec_photo, PDO::PARAM_STR);
+            $result->bindParam(':rec_cat', $rec_cat, PDO::PARAM_INT);
+            $result->bindParam(':rec_kit', $rec_kit, PDO::PARAM_INT);
+            $result->bindParam(':rec_met', $rec_met, PDO::PARAM_INT);
+            $result->bindParam(':rec_occ', $rec_occ, PDO::PARAM_INT);
+            $result->bindParam(':rec_ser', $rec_ser, PDO::PARAM_INT);
+            $result->bindParam(':rec_tim', $rec_tim, PDO::PARAM_INT);
+            $result->bindParam(':rec_com', $rec_com, PDO::PARAM_INT);
+            $result->bindParam(':user_id',$user_id=1,PDO::PARAM_INT);
+
+            $result->execute();
+            return $db->lastInsertId();
+
+        }
+        return null;
+    }
+
+    public static function insertIngredientOfRecipe($rec_id, $ing_id, $ing_count, $count_id)
+    {
+        if(!empty($rec_id)&&!empty($ing_id)&&!empty($ing_count)&&!empty($count_id))
+        {
+            $db = Db::getConnection();
+            $sql = 'INSERT INTO `recipe-ingredient` (id_recipe, id_ingredient, id_count, amount)  '
+                .'VALUES (:rec_id, :ing_id, :count_id, :ing_count)';
+            $result = $db->prepare($sql);
+            $result->bindParam(':rec_id', $rec_id, PDO::PARAM_INT);
+            $result->bindParam(':ing_id', $ing_id, PDO::PARAM_INT);
+            $result->bindParam(':count_id', $count_id, PDO::PARAM_INT);
+            $result->bindParam(':ing_count', $ing_count, PDO::PARAM_INT);
+
+            return $result->execute();
+
+        }
+
+        return null;
+    }
+
+    public static function insertStep($rec_id, $count, $text, $photo)
+    {
+        if(!empty($rec_id)&&!empty($count)&&!empty($text)&&!empty($photo))
+        {
+            $db = Db::getConnection();
+            $sql = 'INSERT INTO step (id_recipe, description, photo, step.number) '
+                .'VALUES (:rec_id, :step_text, :photo, :step_count)';
+            $result = $db->prepare($sql);
+            $result->bindParam(':rec_id', $rec_id, PDO::PARAM_INT);
+            $result->bindParam(':step_count', $count, PDO::PARAM_INT);
+            $result->bindParam(':step_text', $text, PDO::PARAM_STR);
+            $result->bindParam(':photo', $photo, PDO::PARAM_STR);
+
+            return $result->execute();
+        }
+        return null;
+    }
 }

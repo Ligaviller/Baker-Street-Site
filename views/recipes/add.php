@@ -1,6 +1,6 @@
 <?php include (ROOT."/template/parts/header.php");
 ?>
-<form>
+<form action="" method="post">
 <div class="item">
     <div class="itemHeader">
         <h1>
@@ -96,8 +96,8 @@
         <h3>Ингредиенты</h3>
         <hr>
         <div class="tableIng">
-            <div class="tableIngIng add" id="buildyourform">
-                <input type="button" value="Добавить ингредиент" class="add" id="add" />
+            <div class="tableIngIng add" id="addIngForm">
+                <input type="button" value="Добавить ингредиент" class="add" id="addIng" />
             </div>
             <div class="tableIngCount">
                 <ul>
@@ -110,12 +110,9 @@
         <h3>Способ приготовления</h3>
 
             <hr>
-            <div class="recipeStepItem">
-                <img src="" alt="">
-                <div>
-                    <h4>Шаг .</h4>
-                    <p></p>
-                </div>
+            <div class="recipeStepItem" id="addStepForm">
+                <input type="button" value="Добавить шаг" class="add" id="addStep" />
+
             </div>
 
 
@@ -123,35 +120,66 @@
 
 
     </div>
-
+    <input type="submit" value="Сохранить" />
 </div>
 </form>
 <?php
 echo '<script>';
 ?>
 $(document).ready(function() {
-$("#add").click(function() {
+var stepCount = 0;
+$("#addIng").click(function() {
 
-var lastField = $("#buildyourform div:last");
+var lastField = $("#addIngForm div:last");
 var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
-var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
+var fieldWrapper = $("<div class=\"addIngForm\" id=\"ing" + intId + "\"/>");
 fieldWrapper.data("idx", intId);
-var fType = $("<select class=\"fieldtype\"><?php
+var fType = $("<select name=\"ingNameC[" + intId + "]\" class=\"selectIng\"><?php
     foreach ($ingredientList as $ingredientItem)
         echo '<option value=\"'.$ingredientItem["id"].'\">'.$ingredientItem["ing_name"].'</option>';
     ?></select>");
-var fName = $("<input type=\"text\" class=\"fieldname\" />");
+var fName = $("<input name=\"ingCountC[" + intId + "]\" type=\"text\" class=\"fieldCount\" />");
+var count = $("<select name=\"ingMesC[" + intId + "]\" ><?php
+    foreach ($countList as $countItem)
+        echo '<option value=\"'.$countItem["id"].'\">'.$countItem["count_name"].'</option>';
+    ?></select>");
 var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
 removeButton.click(function() {
 $(this).parent().remove();
 });
 fieldWrapper.append(fType);
 fieldWrapper.append(fName);
+fieldWrapper.append(count);
 fieldWrapper.append(removeButton);
 
-$("#buildyourform").append(fieldWrapper);
-$(".fieldtype").select2();
+$("#addIngForm").append(fieldWrapper);
+$(".selectIng").select2();
 });
+
+$("#addStep").click(function() {
+stepCount++;
+var lastField = $("#addStepForm div:last");
+var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
+var fieldWrapper = $("<div class=\"addStepForm\" id=\"field" + intId + "\"/>");
+fieldWrapper.data("idx", intId);
+var fCount = $("<input name=\"stepNumC[" + intId + "]\" type=\"text\" class=\"stepNum\" />");
+var fPhoto = $("<input name=\"stepPhotoC[" + intId + "]\" type=\"text\" class=\"stepPhoto\" />");
+var fName = $("<input name=\"stepTextC[" + intId + "]\" type=\"text\" class=\"stepText\" />");
+
+var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
+removeButton.click(function() {
+$(this).parent().remove();
+stepCount--;
+});
+fieldWrapper.append(fCount);
+fieldWrapper.append(fPhoto);
+fieldWrapper.append(fName);
+fieldWrapper.append(removeButton);
+
+$("#addStepForm").append(fieldWrapper);
+});
+
+
 
 });
 <?php
