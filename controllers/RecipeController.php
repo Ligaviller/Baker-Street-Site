@@ -71,4 +71,35 @@ class RecipeController
 
     }
 
+    public function actionApi($method)
+    {
+        $ings=false;
+        $recipeList = Recipe::getRecipeList();
+        $categoryList = Category::getCategoryList();
+        $kitchenList = Kitchen::getKitchenList();
+        $methodList = Method::getMethodList();
+        $occasionList = Occasion::getOccasionList();
+        $servingList = Serving::getServingList();
+        $timeList = Time::getTimeList();
+        $complexityList = Complexity::getComplexityList();
+        $ingredientList = Ingredient::getIngredientList();
+        $countList = Count::getCountList();
+        require(ROOT . '/views/lists.php');
+        return true;
+    }
+    public function actionApiIng($id)
+    {
+        $ingredientList = Ingredient::getIngredientListByRecipeId($id);
+        echo json_encode($ingredientList);
+        return true;
+    }
+    public function actionApiSteps($id)
+    {
+        $stepList = Recipe::getRecipeStepsById($id);
+        echo json_encode($stepList);
+        return true;
+    }
+
+
+
 }

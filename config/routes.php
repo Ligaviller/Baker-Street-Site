@@ -2,6 +2,9 @@
 
 return array(
 
+    'recipes/api/([A-Za-z]+)' => 'recipe/api/$1',
+    'recipes/apiIng/([0-9]+)' => 'recipe/apiIng/$1',
+    'recipes/apiSteps/([0-9]+)' => 'recipe/apiSteps/$1',
     'recipes/([0-9]+)' => 'recipe/view/$1',
     'recipes/add'=> 'recipe/add',
     '(^recipes$)' => 'recipe/list',
